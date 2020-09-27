@@ -4,12 +4,16 @@ buildscript {
     
     repositories {
         google()
+        mavenCentral()
         jcenter()
         
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.6.2'
-        
+
+        classpath "com.didiglobal.booster:booster-gradle-plugin:2.3.3"
+
+        classpath "com.didiglobal.booster:booster-transform-thread:2.3.3"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -19,8 +23,10 @@ buildscript {
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
-        
+
+        maven { url 'https://oss.sonatype.org/content/repositories/public' }
     }
 }
 
