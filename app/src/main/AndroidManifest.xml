@@ -18,6 +18,8 @@
     </activity>
 
     <activity android:name=".x2c.X2cDemoActivity"/>
+
+    <activity android:name=".background.BackgroundDemoActivity"/>
   </application>
 
 </manifest>
