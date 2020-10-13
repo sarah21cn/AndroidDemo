@@ -1,2 +1,3 @@
 rootProject.name='AndroidDemo'
 include ':app'
+include ':plugin'
