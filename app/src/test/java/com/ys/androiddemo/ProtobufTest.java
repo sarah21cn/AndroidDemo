@@ -8,13 +8,15 @@ import org.junit.Test;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.ys.androiddemo.bean.UserBean;
 
+import static org.junit.Assert.*;
+
 /**
  * Created by yinshan on 2020/10/16.
  */
-public class TestProtobuf {
+public class ProtobufTest {
 
   @Test
-  void testProtobuf(){
+  public void testProtobuf(){
     UserBean.User.Builder builder = UserBean.User.newBuilder();
     UserBean.User user = builder.setId(123).setName("Sarah").build();
 
@@ -23,6 +25,9 @@ public class TestProtobuf {
     //反序列化
     try{
       UserBean.User user1 = UserBean.User.parseFrom(bytes);
+
+      assertEquals(user1.getId(), 123);
+      assertEquals(user1.getName(), "Sarah");
     }catch(InvalidProtocolBufferException e){
       e.printStackTrace();
     }
@@ -35,6 +40,5 @@ public class TestProtobuf {
     }catch(IOException e){
       e.printStackTrace();
     }
-
   }
 }
