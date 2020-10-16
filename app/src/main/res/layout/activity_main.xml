@@ -21,4 +21,11 @@
     android:text="测试BackgroundLibrary"
     android:onClick="onClick"/>
 
+  <Button
+    android:id="@+id/vpn_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="跳转VPN"
+    android:onClick="onClick"/>
+
 </LinearLayout>

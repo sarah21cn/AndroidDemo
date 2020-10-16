@@ -20,6 +20,15 @@
     <activity android:name=".x2c.X2cDemoActivity"/>
 
     <activity android:name=".background.BackgroundDemoActivity"/>
+
+    <activity android:name=".vpn.VpnActivity"/>
+
+    <service android:name=".vpn.MyVpnService"
+      android:permission="android.permission.BIND_VPN_SERVICE">
+      <intent-filter>
+        <action android:name="android.net.VpnService"/>
+      </intent-filter>
+    </service>
   </application>
 
 </manifest>
