@@ -12,6 +12,8 @@ import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.util.Log;
 
+import com.ys.androiddemo.bean.UserBean;
+
 /**
  * Created by yinshan on 2020/10/16.
  */

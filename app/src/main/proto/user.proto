@@ -1,0 +1,8 @@
+syntax = "proto3";
+package com.ys.androiddemo.bean; //输出的包名
+option java_outer_classname = "UserBean";  //输出的类名
+
+message User{
+        int64 id    = 1 ;
+        string name = 2 ;
+}
