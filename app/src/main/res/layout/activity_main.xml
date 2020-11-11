@@ -28,4 +28,11 @@
     android:text="跳转VPN"
     android:onClick="onClick"/>
 
+  <Button
+    android:id="@+id/vm_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="测试VM"
+    android:onClick="onClick"/>
+
 </LinearLayout>
