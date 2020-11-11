@@ -35,4 +35,11 @@
     android:text="测试VM"
     android:onClick="onClick"/>
 
+  <Button
+    android:id="@+id/qigsaw_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="测试qigsaw"
+    android:onClick="onClick"/>
+
 </LinearLayout>
