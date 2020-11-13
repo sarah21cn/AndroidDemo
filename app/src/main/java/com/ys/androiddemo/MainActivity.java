@@ -2,6 +2,7 @@ package com.ys.androiddemo;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -51,6 +52,12 @@ public class MainActivity extends Activity {
       case R.id.qigsaw_btn:
         loadPlugin();
         break;
+      case R.id.cloud_btn:
+        intent = new Intent();
+        intent.setData(Uri.parse("kwai://cloudgame/play?packageName=com.kwai.game.fishing&appId=com.kwai.game.fishing&scope=user_info&screenOrientation=1"));
+        startActivity(intent);
+        break;
+
     }
   }
 

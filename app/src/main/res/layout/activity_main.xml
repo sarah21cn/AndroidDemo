@@ -42,4 +42,11 @@
     android:text="测试qigsaw"
     android:onClick="onClick"/>
 
+  <Button
+    android:id="@+id/cloud_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="启动云游戏"
+    android:onClick="onClick"/>
+
 </LinearLayout>
