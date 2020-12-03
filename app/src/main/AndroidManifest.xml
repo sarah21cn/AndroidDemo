@@ -26,6 +26,14 @@
 
     <activity android:name=".viewmodel.ViewModelActivity"/>
 
+    <activity android:name=".fullscreen.HorizontalActivity"
+      android:screenOrientation="landscape"
+      android:theme="@style/FullscreenNoTitleWithoutWindowAnimation"/>
+
+    <activity android:name=".fullscreen.VerticalActivity"
+      android:screenOrientation="portrait"
+      android:theme="@style/FullscreenNoTitleWithoutWindowAnimation"/>
+
     <service android:name=".vpn.MyVpnService"
       android:permission="android.permission.BIND_VPN_SERVICE">
       <intent-filter>

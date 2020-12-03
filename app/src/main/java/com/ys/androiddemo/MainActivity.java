@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.play.core.splitinstall.SplitInstallManager;
@@ -16,6 +17,8 @@ import com.google.android.play.core.splitinstall.SplitInstallStateUpdatedListene
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus;
 import com.iqiyi.android.qigsaw.core.Qigsaw;
 import com.ys.androiddemo.background.BackgroundDemoActivity;
+import com.ys.androiddemo.fullscreen.HorizontalActivity;
+import com.ys.androiddemo.fullscreen.VerticalActivity;
 import com.ys.androiddemo.viewmodel.ViewModelActivity;
 import com.ys.androiddemo.vpn.VpnActivity;
 import com.ys.androiddemo.x2c.X2cDemoActivity;
@@ -54,10 +57,17 @@ public class MainActivity extends Activity {
         break;
       case R.id.cloud_btn:
         intent = new Intent();
-        intent.setData(Uri.parse("kwai://cloudgame/play?packageName=com.kwai.game.fishing&appId=com.kwai.game.fishing&scope=user_info&screenOrientation=1"));
+        intent.setData(Uri.parse("kwai://cloudgame/play?packageName=com.kwai.game.fishing&appId=ks694117295825451944&scope=user_info&screenOrientation=1"));
         startActivity(intent);
         break;
-
+      case R.id.vertical_btn:
+        intent = new Intent(this, VerticalActivity.class);
+        startActivity(intent);
+        break;
+      case R.id.horizontal_btn:
+        intent = new Intent(this, HorizontalActivity.class);
+        startActivity(intent);
+        break;
     }
   }
 

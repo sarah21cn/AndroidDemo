@@ -49,4 +49,19 @@
     android:text="启动云游戏"
     android:onClick="onClick"/>
 
+  <Button
+    android:id="@+id/vertical_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="启动竖屏"
+    android:onClick="onClick"/>
+
+  <Button
+    android:id="@+id/horizontal_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="启动横屏"
+    android:onClick="onClick"/>
+
+
 </LinearLayout>
