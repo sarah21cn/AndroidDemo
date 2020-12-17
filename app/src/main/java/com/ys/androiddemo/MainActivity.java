@@ -17,6 +17,7 @@ import com.google.android.play.core.splitinstall.SplitInstallStateUpdatedListene
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus;
 import com.iqiyi.android.qigsaw.core.Qigsaw;
 import com.ys.androiddemo.background.BackgroundDemoActivity;
+import com.ys.androiddemo.classloader.ClassLoaderActivity;
 import com.ys.androiddemo.fullscreen.HorizontalActivity;
 import com.ys.androiddemo.fullscreen.VerticalActivity;
 import com.ys.androiddemo.viewmodel.ViewModelActivity;
@@ -66,6 +67,10 @@ public class MainActivity extends Activity {
         break;
       case R.id.horizontal_btn:
         intent = new Intent(this, HorizontalActivity.class);
+        startActivity(intent);
+        break;
+      case R.id.class_loader_btn:
+        intent = new Intent(this, ClassLoaderActivity.class);
         startActivity(intent);
         break;
     }

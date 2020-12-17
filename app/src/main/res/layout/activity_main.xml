@@ -63,5 +63,12 @@
     android:text="启动横屏"
     android:onClick="onClick"/>
 
+  <Button
+    android:id="@+id/class_loader_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="测试classLoader"
+    android:onClick="onClick"/>
+
 
 </LinearLayout>

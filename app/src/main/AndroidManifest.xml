@@ -2,6 +2,9 @@
 <manifest package="com.ys.androiddemo"
   xmlns:android="http://schemas.android.com/apk/res/android">
 
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
   <application
     android:name=".DemoApplication"
     android:allowBackup="true"
@@ -33,6 +36,8 @@
     <activity android:name=".fullscreen.VerticalActivity"
       android:screenOrientation="portrait"
       android:theme="@style/FullscreenNoTitleWithoutWindowAnimation"/>
+
+    <activity android:name=".classloader.ClassLoaderActivity"/>
 
     <service android:name=".vpn.MyVpnService"
       android:permission="android.permission.BIND_VPN_SERVICE">
