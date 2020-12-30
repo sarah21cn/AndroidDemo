@@ -20,7 +20,7 @@ public class DemoApplication extends Application {
 
   @Override
   public void onCreate() {
-    openStrictMode();
+    //openStrictMode();
     super.onCreate();
 
     Qigsaw.install(this, new Downloader() {

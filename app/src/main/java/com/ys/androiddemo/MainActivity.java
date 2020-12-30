@@ -120,5 +120,12 @@ public class MainActivity extends Activity {
     Intent intent = new Intent();
     intent.setClassName("com.ys.androiddemo", "com.ys.simple.plugin.PluginActivity");
     startActivity(intent);
+
+    try{
+      Class<?> clazz = Class.forName("com.ys.simple.plugin.PluginActivity");
+    }catch (ClassNotFoundException e){
+      e.printStackTrace();
+    }
+
   }
 }
