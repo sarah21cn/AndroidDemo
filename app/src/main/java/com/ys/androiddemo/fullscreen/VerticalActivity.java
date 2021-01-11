@@ -11,6 +11,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.ys.androiddemo.R;
+import com.ys.androiddemo.serializable.TestJsonObject;
 
 /**
  * Created by yinshan on 2020/12/1.

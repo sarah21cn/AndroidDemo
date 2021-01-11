@@ -20,6 +20,8 @@ import com.ys.androiddemo.background.BackgroundDemoActivity;
 import com.ys.androiddemo.classloader.ClassLoaderActivity;
 import com.ys.androiddemo.fullscreen.HorizontalActivity;
 import com.ys.androiddemo.fullscreen.VerticalActivity;
+import com.ys.androiddemo.memory.MemoryActivity;
+import com.ys.androiddemo.serializable.TestJsonObject;
 import com.ys.androiddemo.viewmodel.ViewModelActivity;
 import com.ys.androiddemo.vpn.VpnActivity;
 import com.ys.androiddemo.x2c.X2cDemoActivity;
@@ -63,6 +65,7 @@ public class MainActivity extends Activity {
         break;
       case R.id.vertical_btn:
         intent = new Intent(this, VerticalActivity.class);
+        intent.putExtra("test", new TestJsonObject());
         startActivity(intent);
         break;
       case R.id.horizontal_btn:
@@ -71,6 +74,10 @@ public class MainActivity extends Activity {
         break;
       case R.id.class_loader_btn:
         intent = new Intent(this, ClassLoaderActivity.class);
+        startActivity(intent);
+        break;
+      case R.id.memory_btn:
+        intent = new Intent(this, MemoryActivity.class);
         startActivity(intent);
         break;
     }

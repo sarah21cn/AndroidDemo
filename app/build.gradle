@@ -80,4 +80,8 @@ dependencies {
     implementation 'com.google.protobuf:protoc:3.8.0'
 
     implementation "com.iqiyi.android.qigsaw:splitcore:1.4.1-hotfix01"
+
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.permissionx.guolindev:permissionx:1.4.0'
+
 }
