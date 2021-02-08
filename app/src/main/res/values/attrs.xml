@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <declare-styleable name="GameDownloadView">
+    <attr name="gameRadius" format="dimension"/>
+    <attr name="gameBgBorderWidth" format="dimension"/>
+    <attr name="gameIdleGreyColor" format="color"/>
+    <attr name="gameProgressStartColor" format="color"/>
+    <attr name="gameProgressEndColor" format="color"/>
+    <attr name="gameBorderStartColor" format="color"/>
+    <attr name="gameBorderEndColor" format="color"/>
+    <attr name="gameTextSize" format="dimension"/>
+    <attr name="gameProgressHeight" format="dimension"/>
+  </declare-styleable>
+</resources>

@@ -5,6 +5,14 @@
   <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
+  <uses-permission android:name="com.android.launcher.permission.WRITE_SETTINGS" />
+  <!-- 添加快捷方式 -->
+  <uses-permission android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+  <!-- 移除快捷方式 -->
+  <uses-permission android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+  <!-- 查询快捷方式 -->
+  <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
+
   <application
     android:name=".DemoApplication"
     android:allowBackup="true"
@@ -14,7 +22,8 @@
     android:supportsRtl="true"
     android:theme="@style/AppTheme"
     android:requestLegacyExternalStorage="true">
-    <activity android:name=".MainActivity">
+    <activity android:name=".MainActivity"
+      android:launchMode="singleTask">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
 
@@ -48,6 +57,21 @@
         <action android:name="android.net.VpnService"/>
       </intent-filter>
     </service>
+
+    <service android:name=".service.TestService"
+      android:exported="true"/>
+
+    <activity android:name=".service.NewProcessActivity"
+      android:exported="true"
+      android:process=":new" />
+
+    <activity android:name=".statemachine.StateMachineActivity"/>
+
+    <activity android:name=".orientation.OrientationActivity"
+      android:configChanges="keyboardHidden|keyboard|orientation|screenSize"
+      android:screenOrientation="nosensor"/>
+
+    <activity android:name=".downloadview.DownloadViewActivity"/>
   </application>
 
 </manifest>

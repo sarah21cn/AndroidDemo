@@ -80,6 +80,14 @@ public class MemoryActivity extends AppCompatActivity {
     }.start();
   }
 
+  private void readFile(){
+    try{
+      FileInputStream in = new FileInputStream("/sdcard/a.txt");
+    }catch (IOException e){
+      e.printStackTrace();
+    }
+  }
+
   private void readFilesCheckPermissions(){
     PermissionX.init(this)
         .permissions(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -100,11 +108,5 @@ public class MemoryActivity extends AppCompatActivity {
         });
   }
 
-  private void readFile(){
-    try{
-      FileInputStream in = new FileInputStream("/sdcard/a.txt");
-    }catch (IOException e){
-      e.printStackTrace();
-    }
-  }
+
 }

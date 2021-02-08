@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <dimen name="text_size_14">14sp</dimen>
+  <dimen name="progress_bar_height_11dp">11dp</dimen>
+</resources>

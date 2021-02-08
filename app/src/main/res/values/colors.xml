@@ -3,4 +3,11 @@
   <color name="colorPrimary">#6200EE</color>
   <color name="colorPrimaryDark">#3700B3</color>
   <color name="colorAccent">#03DAC5</color>
+
+  <color name="orange_color">#FF5000</color>
+  <color name="gray_color">#F3F3F3</color>
+  <color name="progress_start_color">#FF6221</color>
+  <color name="progress_end_color">#FFD13D</color>
+  <color name="border_start_color">#B54A00</color>
+  <color name="border_end_color">#FFB448</color>
 </resources>

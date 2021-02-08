@@ -77,4 +77,25 @@
     android:text="内存泄漏"
     android:onClick="onClick"/>
 
+  <Button
+    android:id="@+id/state_machine_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="状态机"
+    android:onClick="onClick"/>
+
+  <Button
+    android:id="@+id/download_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="下载进度"
+    android:onClick="onClick"/>
+
+  <Button
+    android:id="@+id/orientation_btn"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="旋转屏幕"
+    android:onClick="onClick"/>
+
 </LinearLayout>
