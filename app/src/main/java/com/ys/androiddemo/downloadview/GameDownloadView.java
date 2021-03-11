@@ -15,6 +15,7 @@ import android.graphics.Shader;
 import android.os.Build;
 import androidx.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.ys.androiddemo.R;
@@ -245,8 +246,8 @@ public class GameDownloadView extends View {
     return mBorderBitmap;
   }
 
-  private void drawText(Canvas canvas){
-    if(mTextPaint == null){
+  private void drawText(Canvas canvas) {
+    if (mTextPaint == null) {
       mTextPaint = new Paint();
       mTextPaint.setAntiAlias(true);
       mTextPaint.setShader(null);
@@ -254,12 +255,19 @@ public class GameDownloadView extends View {
       mTextPaint.setTextSize(mTextSize);
     }
     float bgWidth = mTextBgBitmap.getWidth();
+    float bgHeight = mTextBgBitmap.getHeight();
+    Log.d("testtest", bgWidth + " " + bgHeight);
 //    float left = Math.max(0, mProgressBounds.right - bgWidth / 2);
 //    left = Math.min(left, mBackgroundBounds.right - bgWidth);
     float left = mProgressBounds.right - bgWidth / 2;
     canvas.drawBitmap(mTextBgBitmap, left, 0, mTextPaint);
     float tvWidth = mTextPaint.measureText(mProgress + "%");
-    canvas.drawText(mProgress + "%", left + (bgWidth - tvWidth) / 2, 35, mTextPaint);
+    float baselineY = Math.abs(mTextPaint.ascent() + mTextPaint.descent()) / 2;
+    Log.d("testtest", "baselineY:" + baselineY + " " + mTextPaint.ascent() + " " + mTextPaint.descent());
+    float tvHeight = Math.abs(mTextPaint.descent() - mTextPaint.ascent());
+    Log.d("testtest", " tvHeight " + tvHeight);
+    canvas.drawText(mProgress + "%", left + (bgWidth - tvWidth) / 2,
+        (0.8f * bgHeight - tvHeight) / 2 + Math.abs(mTextPaint.ascent()), mTextPaint);
   }
 
   Bitmap makeShaderDst() {

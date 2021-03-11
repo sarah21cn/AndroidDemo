@@ -6,6 +6,10 @@ buildscript {
         google()
         mavenCentral()
         jcenter()
+
+        maven {
+            url new File(rootProject.projectDir, "buildCache/plugin").toURI()
+        }
         
     }
     dependencies {
@@ -30,7 +34,13 @@ allprojects {
         mavenCentral()
         jcenter()
 
-        maven { url 'https://oss.sonatype.org/content/repositories/public' }
+        maven {
+            url 'https://oss.sonatype.org/content/repositories/public'
+        }
+
+        maven{
+            url new File(rootProject.projectDir, "buildCache/plugin").toURI()
+        }
     }
 }
 

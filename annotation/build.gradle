@@ -1,0 +1,18 @@
+apply plugin:'java-library'
+apply plugin:'maven'
+
+group = 'com.ys.annotation'
+version = '1.0.0'
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            // push to remote
+//            repository(url: "http://www.xxx.com/repos") {
+//                authentication(userName: "admin", password: "admin")
+//            }
+            // push to local
+            repository(url: new File(rootProject.projectDir, "buildCache/plugin").toURI())
+        }
+    }
+}

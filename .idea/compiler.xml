@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="CompilerConfiguration">
-    <bytecodeTargetLevel target="1.8" />
+    <bytecodeTargetLevel target="1.7">
+      <module name="AndroidDemo.annotation" target="1.8" />
+      <module name="AndroidDemo.app" target="1.8" />
+      <module name="AndroidDemo.BuildSrc" target="1.8" />
+      <module name="AndroidDemo.plugin" target="1.8" />
+      <module name="AndroidDemo.plugindemo" target="1.8" />
+      <module name="AndroidDemo.testinvoker" target="1.8" />
+      <module name="AndroidDemo.transform" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

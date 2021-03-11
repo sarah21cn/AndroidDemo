@@ -1,24 +1,14 @@
 package com.ys.androiddemo;
 
-import java.util.Random;
-
-import org.json.JSONObject;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.core.content.PermissionChecker;
 
 import com.google.android.play.core.splitinstall.SplitInstallManager;
@@ -27,17 +17,16 @@ import com.google.android.play.core.splitinstall.SplitInstallRequest;
 import com.google.android.play.core.splitinstall.SplitInstallSessionState;
 import com.google.android.play.core.splitinstall.SplitInstallStateUpdatedListener;
 import com.google.android.play.core.splitinstall.model.SplitInstallSessionStatus;
-import com.iqiyi.android.qigsaw.core.Qigsaw;
 import com.ys.androiddemo.background.BackgroundDemoActivity;
 import com.ys.androiddemo.classloader.ClassLoaderActivity;
 import com.ys.androiddemo.downloadview.DownloadViewActivity;
-import com.ys.androiddemo.downloadview.GameDownloadView;
 import com.ys.androiddemo.fullscreen.HorizontalActivity;
 import com.ys.androiddemo.fullscreen.VerticalActivity;
+import com.ys.androiddemo.invoker.Invokee;
+import com.ys.androiddemo.invoker.Invoker;
 import com.ys.androiddemo.memory.MemoryActivity;
 import com.ys.androiddemo.orientation.OrientationActivity;
 import com.ys.androiddemo.serializable.TestJsonObject;
-import com.ys.androiddemo.service.TestService;
 import com.ys.androiddemo.shortcut.ShortCutUtils;
 import com.ys.androiddemo.statemachine.StateMachineActivity;
 import com.ys.androiddemo.viewmodel.ViewModelActivity;
@@ -53,6 +42,8 @@ public class MainActivity extends Activity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
     manager = SplitInstallManagerFactory.create(this);
+
+    new Invoker().invokeMethod();
   }
 
   public void onClick(View view){
@@ -80,16 +71,30 @@ public class MainActivity extends Activity {
       case R.id.cloud_btn:
 //        intent = new Intent();
 //        intent.setData(Uri.parse("kwai://cloudgame/play?packageName=com.happyelements.AndroidAnimal.kuaishou&appId=ks655273747375298423&scope=user_info&screenOrientation=0"));
-//        startActivity(intent);
+//        intent.setAction(Intent.ACTION_VIEW);
+////        startActivity(intent);
+//
+//        ShortcutInfoCompat shortcut = new ShortcutInfoCompat
+//            .Builder(this, "ks655273747375298423")
+//            .setShortLabel("测试快捷方式")
+//            .setLongLabel("测试快捷方式")
+//            .setIntent(intent)
+//            .build();
+//
+//        Intent pinnedShortcutCallbackIntent = ShortcutManagerCompat.createShortcutResultIntent(this, shortcut);
+//        PendingIntent successCallback = PendingIntent.getBroadcast(this, 0,
+//            pinnedShortcutCallbackIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+//        // 发起添加快捷方式的请求
+//        ShortcutManagerCompat.requestPinShortcut(this, shortcut, successCallback.getIntentSender());
 
-//        intent = new Intent();
-//        intent.setClassName("com.smile.gifmaker", "com.yxcorp.gifshow.gamecenter.sogame.playstation.sogame.playstation.PlayStationIpcService");
-//        startService(intent);
+        intent = new Intent();
+        intent.setClassName("com.smile.gifmaker", "com.yxcorp.gifshow.gamecenter.sogame.playstation.sogame.playstation.PlayStationIpcService");
+        startService(intent);
         if(!hasPermission(this, Manifest.permission.INSTALL_SHORTCUT)){
           Toast.makeText(this, "没有权限", Toast.LENGTH_SHORT).show();
           return;
         }
-        if(new ShortCutUtils(this).createPinnedShortCuts()){
+        if(new ShortCutUtils(this).createPinnedShortCuts(this)){
           Toast.makeText(this, "创建成功", Toast.LENGTH_SHORT).show();
         }else{
           Toast.makeText(this, "创建失败，没权限", Toast.LENGTH_SHORT).show();

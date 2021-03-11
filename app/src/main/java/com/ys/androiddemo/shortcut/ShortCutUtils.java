@@ -13,7 +13,9 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.drawable.IconCompat;
 
+import com.ys.androiddemo.MainActivity;
 import com.ys.androiddemo.R;
 
 /**
@@ -47,26 +49,26 @@ public class ShortCutUtils {
 //    }
 //  }
 
-  public boolean createPinnedShortCuts(){
+  public boolean createPinnedShortCuts(Context context){
     if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-      return createPinnedShortCutsO();
+      return createPinnedShortCutsO(context);
     }else{
       return createPinnedShortCutsOthers();
     }
   }
 
   @RequiresApi(api = Build.VERSION_CODES.O)
-  private boolean createPinnedShortCutsO() {
+  private boolean createPinnedShortCutsO(Context context) {
     ShortcutManager shortcutManager = mContext.getSystemService(ShortcutManager.class);
     if (shortcutManager != null && shortcutManager.isRequestPinShortcutSupported()) {
-      Intent intent = new Intent();
-      intent.setData(Uri.parse(
-          "kwai://cloudgame/play?packageName=com.happyelements.AndroidAnimal.kuaishou&appId=ks655273747375298423&scope=user_info&screenOrientation=0"));
+      Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("kwai://cloudgame/play?packageName=com.happyelements.AndroidAnimal.kuaishou&appId=ks655273747375298423&scope=user_info&screenOrientation=0"));
+//      intent.setData(Uri.parse(
+//          "kwai://cloudgame/play?packageName=com.happyelements.AndroidAnimal.kuaishou&appId=ks655273747375298423&scope=user_info&screenOrientation=0"));
       intent.setAction(Intent.ACTION_VIEW);
       ShortcutInfoCompat pinShortcutInfo = new ShortcutInfoCompat.Builder(mContext, "my-shortcut")
           .setLongLabel("开心消消乐")
           .setShortLabel("开心消消乐")
-//          .setIcon(Icon.createWithResource(mContext, R.drawable.icon))
+          .setIcon(IconCompat.createWithResource(mContext, R.drawable.icon))
           .setIntent(intent)
           .build();
       Intent pinnedShortcutCallbackIntent =
