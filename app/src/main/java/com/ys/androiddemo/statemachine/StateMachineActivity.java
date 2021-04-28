@@ -18,11 +18,35 @@ public class StateMachineActivity extends Activity {
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_state_machine);
+    NewStateMachine stateMachine = new NewStateMachine("NewStateMachine");
+    findViewById(R.id.a_btn).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        stateMachine.sendMessage(NewStateMachine.MSG_ENTER_A);
+      }
+    });
+    findViewById(R.id.b_btn).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        stateMachine.sendMessage(NewStateMachine.MSG_ENTER_B);
+      }
+    });
+    findViewById(R.id.c_btn).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        stateMachine.sendMessage(NewStateMachine.MSG_ENTER_C);
+      }
+    });
+    findViewById(R.id.exit_btn).setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        stateMachine.quitNow();
+      }
+    });
     findViewById(R.id.start_btn).setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-//        CloudGameManager.moveToState(new CloudGameCallerContext(), CloudGameState.GAME_CONFIG);
-        CloudGameManager.nextStep(callerContext);
+        stateMachine.start();
       }
     });
   }

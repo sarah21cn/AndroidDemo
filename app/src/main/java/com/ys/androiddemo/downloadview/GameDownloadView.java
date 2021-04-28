@@ -49,7 +49,8 @@ public class GameDownloadView extends View {
   int mBorderEndColor;
 
   float mTextSize = getResources().getDimension(R.dimen.text_size_14);
-  int mProgressBarHeight = (int) getResources().getDimension(R.dimen.progress_bar_height_11dp);
+  float mProgressBarHeight = getResources().getDimension(R.dimen.progress_bar_height_11dp);
+  float mProgresssMarginTop = getResources().getDimension(R.dimen.progress_bar_margin_top);
 
   float mMarginTop;
   float mMarginHorizontal;
@@ -115,8 +116,14 @@ public class GameDownloadView extends View {
       Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.progress_bg);
       mTextBgBitmap = bitmap.copy(Bitmap.Config.ARGB_8888, true);
     }
-    mMarginTop = mTextBgBitmap.getHeight();
+    mMarginTop = mTextBgBitmap.getHeight() + mProgresssMarginTop;
     mMarginHorizontal = mTextBgBitmap.getWidth() / 2;
+  }
+
+  @Override
+  protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+    setMeasuredDimension(widthMeasureSpec, (int) (mMarginTop + mProgressBarHeight));
   }
 
   @Override
@@ -267,7 +274,7 @@ public class GameDownloadView extends View {
     float tvHeight = Math.abs(mTextPaint.descent() - mTextPaint.ascent());
     Log.d("testtest", " tvHeight " + tvHeight);
     canvas.drawText(mProgress + "%", left + (bgWidth - tvWidth) / 2,
-        (0.8f * bgHeight - tvHeight) / 2 + Math.abs(mTextPaint.ascent()), mTextPaint);
+        (0.82f * bgHeight - tvHeight) / 2 + Math.abs(mTextPaint.ascent()), mTextPaint);
   }
 
   Bitmap makeShaderDst() {

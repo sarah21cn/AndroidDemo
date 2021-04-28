@@ -1,3 +1,5 @@
 <resources>
   <string name="app_name">testInvoker</string>
+
+  <string name="zt_game_in_queue_tips">排队中...前面还有<Data><![CDATA[<font color="#00ff00">%d</font>]]></Data>人</string>
 </resources>
